@@ -1,9 +1,27 @@
-import articles from './assets/articles'
+import initialArticles from './assets/articles.js'
 import { useState } from 'react'
 
 function App() {
 
   const [newArticle, setNewArticle] = useState("")
+  const [articles, setArticles] = useState(initialArticles)
+
+  const addArticle = (e) => {
+    e.preventDefault()
+    console.log(`Nuovo articolo: ${newArticle}`)
+
+    const newArticleObj = {
+      id: articles[articles.length - 1].id + 1,
+      title: newArticle,
+      description: "Descrizione dell'articolo",
+      author: 'Giulia Neri',
+      date: '2025-04-28',
+      tags: ['Xbox', 'Game Pass', 'Recensioni']
+    }
+
+    setArticles([...articles, newArticleObj])
+    setNewArticle("")
+  }
 
   return (
     <>
@@ -15,7 +33,7 @@ function App() {
       </header>
       <main>
         <div className="container">
-          <form>
+          <form onSubmit={addArticle}>
             <div className="form-container d-flex j-center">
               <input
                 type="text"
@@ -34,11 +52,6 @@ function App() {
                 <p>{article.description}</p>
                 <p>{article.author}</p>
                 <p>{article.date}</p>
-                <div className="tags">
-                  {article.tags.map(tag => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
