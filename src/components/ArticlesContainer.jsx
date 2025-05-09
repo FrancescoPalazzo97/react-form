@@ -6,7 +6,7 @@ const ArticlesContainer = ({ articles, handleDeleteElement }) => {
     return (
         <div className="articles-container">
             {articles.map((article) => (
-                <Article article={article} handleDeleteElement={handleDeleteElement} />
+                <Article key={`card-${article.id}`} article={article} handleDeleteElement={handleDeleteElement} />
             ))}
         </div>
     )

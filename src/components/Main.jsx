@@ -10,12 +10,17 @@ const Main = () => {
 
     const addArticle = (e) => {
         e.preventDefault();
-        const newArticleObj = {
-            id: articles.length === 0 ? 1 : articles[articles.length - 1].id + 1,
-            title: newArticle,
-            description: "Descrizione dell'articolo",
-            author: 'Autore dell\'articolo',
-        };
+        if (newArticle.trim() === "") {
+            alert("Il titolo non può essere vuoto");
+            return;
+        } else {
+            const newArticleObj = {
+                id: articles.length === 0 ? 1 : articles[articles.length - 1].id + 1,
+                title: newArticle.trim(),
+                description: "Descrizione dell'articolo",
+                author: 'Autore dell\'articolo',
+            };
+        }
         setArticles([...articles, newArticleObj]);
         setNewArticle("");
     };

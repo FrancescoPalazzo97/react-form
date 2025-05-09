@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import Button from './Button.jsx';
 
 const Form = ({ newArticle, setNewArticle, addArticle }) => {
 
@@ -12,7 +12,7 @@ const Form = ({ newArticle, setNewArticle, addArticle }) => {
                     value={newArticle}
                     onChange={(e) => setNewArticle(e.target.value)}
                 />
-                <button>invia</button>
+                <Button content={`invia`} />
             </form>
         </div>
     )
