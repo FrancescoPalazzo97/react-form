@@ -1,5 +1,6 @@
 import initialArticles from './assets/articles.js';
 import { useState } from 'react';
+import Header from './components/Header.jsx';
 
 function App() {
   const [newArticle, setNewArticle] = useState("");
@@ -26,11 +27,7 @@ function App() {
 
   return (
     <>
-      <header>
-        <div className="container">
-          <h1>React Form</h1>
-        </div>
-      </header>
+      <Header />
       <main>
         <div className="container">
           <form onSubmit={addArticle}>
