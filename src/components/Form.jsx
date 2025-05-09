@@ -4,8 +4,8 @@ import { useState } from 'react';
 const Form = ({ newArticle, setNewArticle, addArticle }) => {
 
     return (
-        <form onSubmit={addArticle}>
-            <div className="form-container d-flex j-center">
+        <div className="form-container">
+            <form onSubmit={addArticle}>
                 <input
                     type="text"
                     placeholder="Inserisci titolo"
@@ -13,8 +13,8 @@ const Form = ({ newArticle, setNewArticle, addArticle }) => {
                     onChange={(e) => setNewArticle(e.target.value)}
                 />
                 <button>invia</button>
-            </div>
-        </form>
+            </form>
+        </div>
     )
 }
 

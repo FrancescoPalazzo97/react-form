@@ -14,9 +14,7 @@ const Main = () => {
             id: articles.length === 0 ? 1 : articles[articles.length - 1].id + 1,
             title: newArticle,
             description: "Descrizione dell'articolo",
-            author: 'Giulia Neri',
-            date: '2025-04-28',
-            tags: ['Xbox', 'Game Pass', 'Recensioni']
+            author: 'Autore dell\'articolo',
         };
         setArticles([...articles, newArticleObj]);
         setNewArticle("");
@@ -28,7 +26,7 @@ const Main = () => {
     };
     return (
         <main>
-            <div className="container">
+            <div className="container d-flex j-center wrap">
                 <Form
                     newArticle={newArticle}
                     setNewArticle={setNewArticle}

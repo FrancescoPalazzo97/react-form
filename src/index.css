@@ -16,6 +16,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 0;
+  height: 100%;
 }
 
 .form-container {
@@ -29,6 +30,10 @@ body {
   display: flex;
 }
 
+.d-column {
+  flex-direction: column;
+}
+
 .j-center {
   justify-content: center;
 }
@@ -39,6 +44,10 @@ body {
 
 /* HEADER */
 
+header {
+  height: 100px;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -46,27 +55,129 @@ h1 {
 
 /* MAIN */
 
+main {
+  height: calc(100vh - 100px);
+
+}
+
+.form-container {
+  height: 5%;
+}
+
+form {
+  height: 100%;
+}
+
 form input {
   width: 80%;
   padding: 10px 5px;
+  height: 100%;
+  border: 1px solid #007bff;
+  border-radius: 5px 0 0 5px;
 }
+
+form input:hover {
+  box-shadow: 0 2px 5px #007bff38;
+
+}
+
+form input:focus {
+  outline: none;
+  border: 1px solid #007bff;
+}
+
+form input::placeholder {
+  color: #999;
+}
+
+form input:focus::placeholder {
+  color: #007bff;
+}
+
 
 form button {
   width: 20%;
+  height: 100%;
 }
 
 .articles-container {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  height: 95%;
   padding: 40px 0;
+  overflow-y: scroll;
 }
 
+.articles-container::-webkit-scrollbar {
+  display: none;
+}
+
+
 .article-card {
-  width: calc(100% / 3 - 20px);
+  width: calc(100% / 4 - 20px);
+  height: calc(100% / 2 - 20px);
   margin: 10px;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.article-title {
+  margin-bottom: 20px;
+  height: calc(100% / 3 - 20px);
+}
+
+.article-body {
+  height: calc((100% / 3) * 2 - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article-body p {
+  margin-bottom: 20px;
+}
+
+.article-body cite {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+form button {
+  background-color: #007bff;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.article-card button {
+  background-color: #dc3545;
+  border-radius: 5px;
+}
+
+.article-card button:hover {
+  background-color: #b32b38;
+}
+
+button i {
+  margin-right: 5px;
+  transform: scale(1.1);
 }

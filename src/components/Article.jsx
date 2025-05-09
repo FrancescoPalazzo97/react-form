@@ -2,24 +2,18 @@ import React from 'react'
 
 const Article = ({ article, handleDeleteElement }) => {
 
-    const { id, title, description, author, date, tags } = article
+    const { id, title, description, author } = article
 
     return (
-        <div className="article-card" key={id}>
+        <div className="article-card d-flex d-column" key={id}>
             <div className="article-title">
                 <h2>{title}</h2>
             </div>
             <div className="article-body">
                 <p>{description}</p>
-                <p>{author}</p>
-                <p>{date}</p>
-                <div className="tags">
-                    {tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                    ))}
-                </div>
+                <cite>{author}</cite>
                 <button onClick={() => handleDeleteElement(id)}>
-                    elimina
+                    <i class="fa-solid fa-xmark"></i><span>elimina</span>
                 </button>
             </div>
         </div>
