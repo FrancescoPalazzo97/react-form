@@ -1,9 +1,9 @@
 import React from 'react'
 import initialArticles from '../assets/articles.js';
 import { useState } from 'react';
+import Form from './Form.jsx';
 
 const Main = () => {
-
     const [newArticle, setNewArticle] = useState("");
     const [articles, setArticles] = useState(initialArticles);
 
@@ -28,17 +28,11 @@ const Main = () => {
     return (
         <main>
             <div className="container">
-                <form onSubmit={addArticle}>
-                    <div className="form-container d-flex j-center">
-                        <input
-                            type="text"
-                            placeholder="Inserisci titolo"
-                            value={newArticle}
-                            onChange={(e) => setNewArticle(e.target.value)}
-                        />
-                        <button>invia</button>
-                    </div>
-                </form>
+                <Form
+                    newArticle={newArticle}
+                    setNewArticle={setNewArticle}
+                    addArticle={addArticle}
+                />
                 <div className="articles-container">
                     {articles.map((article) => (
                         <div className="article-card" key={article.id}>
