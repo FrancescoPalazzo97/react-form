@@ -1,6 +1,9 @@
 import articles from './assets/articles'
+import { useState } from 'react'
 
 function App() {
+
+  const [newArticle, setNewArticle] = useState("")
 
   return (
     <>
@@ -14,7 +17,11 @@ function App() {
         <div className="container">
           <form>
             <div className="form-container d-flex j-center">
-              <input type="text" placeholder="Inserisci titolo" />
+              <input
+                type="text"
+                placeholder="Inserisci titolo"
+                value={newArticle}
+                onChange={e => setNewArticle(e.target.value)} />
               <button>invia</button>
             </div>
           </form>
